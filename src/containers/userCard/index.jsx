@@ -1,5 +1,5 @@
 import React from 'react'
-import {CardMedia, Grid} from '@mui/material'
+import {CardMedia, Grid, Stack} from '@mui/material'
 import PrincipalInformation from '../../components/PrincipalInformation';
 import Description from '../Description';
 export const UserCard = (props) => {
@@ -9,6 +9,8 @@ export const UserCard = (props) => {
     return (
    <Grid 
    container
+   spacing={2}
+   sx={{marginTop:'15px'}}
    >
     <Grid item xs={3}
     >
@@ -16,12 +18,22 @@ export const UserCard = (props) => {
         component="img"
         alt="GitHub User"
         image={avatar_url}
+        sx={{
+          borderRadius:'50%',
+          marginLeft : '10px'
+        }}
         />
     </Grid>
     <Grid item xs={9}>
+      <Stack 
+      direction='column'
+      spacing={1}
+      sx={{margin: '30px'}}
+      >
         <PrincipalInformation userState={userState}/>
-    </Grid>
         <Description userState={userState}/>
+      </Stack>
+    </Grid>
    </Grid>
   )
 }
